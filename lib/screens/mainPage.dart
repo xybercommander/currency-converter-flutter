@@ -8,8 +8,23 @@ class MainPage extends StatefulWidget {
   _MainPageState createState() => _MainPageState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   bool up = true;
+
+  final Tween<double> turnsTween = Tween<double>(
+    begin: 1,
+    end: 1.5
+  );
+  AnimationController _animationController;
+
+  @override
+  void initState() {
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 150)
+    );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +65,8 @@ class _MainPageState extends State<MainPage> {
                                   context,
                                   PageTransition(
                                       child: RedBackGround(),
-                                      type: PageTransitionType.upToDown)),
+                                      type: PageTransitionType.upToDown,
+                                      duration: Duration(milliseconds: 200))),
                               child: Text("100",
                                   style: TextStyle(
                                       color: Colors.white,
@@ -105,6 +121,7 @@ class _MainPageState extends State<MainPage> {
                                   PageTransition(
                                     child: WhiteBackGround(),
                                     type: PageTransitionType.downToUp,
+                                    duration: Duration(milliseconds: 200)
                                   )),
                               child: Text("100",
                                   style: TextStyle(
@@ -137,24 +154,32 @@ class _MainPageState extends State<MainPage> {
               ],
             ),
             // The Arrow Container
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  up = !up;
-                });
-              },
-              child: Container(
-                height: 150,
-                width: 150,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(color: Colors.red, width: 10),
-                    borderRadius: BorderRadius.circular(100)),
-                child: Center(
-                  child: Icon(
-                    up ? Icons.arrow_downward : Icons.arrow_upward,
-                    color: Colors.red,
-                    size: 90,
+            RotationTransition(
+              turns: turnsTween.animate(_animationController),
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    if(up) {
+                      _animationController.forward();
+                    } else {
+                      _animationController.reverse();
+                    }
+                    up = !up;
+                  });                  
+                },
+                child: Container(
+                  height: 150,
+                  width: 150,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: Colors.red, width: 10),
+                      borderRadius: BorderRadius.circular(100)),
+                  child: Center(
+                    child: Icon(
+                      Icons.arrow_upward,
+                      color: Colors.red,
+                      size: 90,
+                    ),
                   ),
                 ),
               ),
