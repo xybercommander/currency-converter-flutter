@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:currency_converter/helper/constants.dart';
+import 'package:currency_converter/helper/helperfunctions.dart';
 
 class WhiteBackGround extends StatefulWidget {
   @override
@@ -57,6 +58,12 @@ class _WhiteBackGroundState extends State<WhiteBackGround> {
             Constants.whiteCurrency = output;
             Constants.redCurrency = convInrToUsd(output);
           });
+
+          // Saving the data
+          HelperFunctions().saveRedCurrency(Constants.redCurrency);
+          HelperFunctions().saveWhiteCurrency(Constants.whiteCurrency);
+          print("saved");
+
           Navigator.pop(context);
         },
         child: Text("✓", style: TextStyle(color: Colors.white, fontSize: 17),),

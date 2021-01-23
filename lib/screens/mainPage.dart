@@ -1,4 +1,5 @@
 import 'package:currency_converter/helper/constants.dart';
+import 'package:currency_converter/helper/helperfunctions.dart';
 import 'package:currency_converter/screens/redTyper.dart';
 import 'package:currency_converter/screens/whiteTyper.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,26 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   bool up = true;
   bool usdToInr = true;
 
+
+  // Helper Functions (Shared Preference)
+  getRedCurrency() async {
+    String red = await HelperFunctions().getRedCurrency();
+    print(red);
+    setState(() {
+      Constants.redCurrency = red;
+    });
+  }
+
+  getWhiteCurrency() async {
+    String white = await HelperFunctions().getWhiteCurrency();
+    print(white);
+    setState(() {
+      Constants.whiteCurrency = white;
+    });
+  }
+
+
+
   final Tween<double> turnsTween = Tween<double>(
     begin: 1,
     end: 1.5
@@ -26,8 +47,11 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
       duration: Duration(milliseconds: 150)
     );
     super.initState();
+
+    getRedCurrency();
+    getWhiteCurrency();
   }
-  
+
 
 
   // UI of the main page
@@ -79,7 +103,18 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                                     type: PageTransitionType.upToDown,
                                     duration: Duration(milliseconds: 200)
                                   )) :
-                                  () => print("Not done"),
+                                  () {
+                                    up = !up;
+                                    usdToInr = !usdToInr;
+                                    _animationController.forward();
+                                    Navigator.push(
+                                      context,
+                                      PageTransition(
+                                        child: RedBackGround(),
+                                        type: PageTransitionType.upToDown,
+                                        duration: Duration(milliseconds: 200)
+                                    ));
+                                  },
                               child: Text(
                                   Constants.redCurrency == null ? "0.00" : Constants.redCurrency,
                                   style: TextStyle(
@@ -90,7 +125,8 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                             )
                           ],
                         ),
-                        GestureDetector(                                              
+                        GestureDetector( 
+                          onTap: () => getRedCurrency(),                                             
                           child: Text(
                             "USD",
                             style: TextStyle(
@@ -141,7 +177,18 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                                     type: PageTransitionType.downToUp,
                                     duration: Duration(milliseconds: 200)
                                   )) :
-                                  () => print("Not done"),
+                                  () {
+                                    up = !up;
+                                    usdToInr = !usdToInr;
+                                    _animationController.reverse();
+                                    Navigator.push(
+                                      context,
+                                      PageTransition(
+                                        child: WhiteBackGround(),
+                                        type: PageTransitionType.downToUp,
+                                        duration: Duration(milliseconds: 200)
+                                    ));
+                                  },
                               child: Text(
                                   Constants.whiteCurrency == null ? "0.00" : Constants.whiteCurrency,
                                   style: TextStyle(

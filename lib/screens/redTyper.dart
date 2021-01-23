@@ -1,4 +1,5 @@
 import 'package:currency_converter/helper/constants.dart';
+import 'package:currency_converter/helper/helperfunctions.dart';
 import 'package:flutter/material.dart';
 
 class RedBackGround extends StatefulWidget {
@@ -56,8 +57,14 @@ class _RedBackGroundState extends State<RedBackGround> {
         onPressed: () {
           setState(() {
             Constants.redCurrency = output;
-            Constants.whiteCurrency = convUsdToInr(output);
+            Constants.whiteCurrency = convUsdToInr(output);          
           });
+
+          // Saving the data
+          HelperFunctions().saveWhiteCurrency(Constants.whiteCurrency);
+          HelperFunctions().saveRedCurrency(Constants.redCurrency);
+          print("saved");
+
           Navigator.pop(context);
         },
         child: Text("✓", style: TextStyle(color: Colors.white54, fontSize: 17),),
