@@ -1,3 +1,4 @@
+import 'package:currency_converter/helper/constants.dart';
 import 'package:currency_converter/screens/redTyper.dart';
 import 'package:currency_converter/screens/whiteTyper.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   bool up = true;
+  bool usdToInr = true;
 
   final Tween<double> turnsTween = Tween<double>(
     begin: 1,
@@ -25,7 +27,10 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
     );
     super.initState();
   }
+  
 
+
+  // UI of the main page
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,6 +43,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
           children: [
             Column(
               children: [
+
                 // The Red Container
                 Container(
                   width: MediaQuery.of(context).size.width,
@@ -60,40 +66,47 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+                            Text("\$",
+                                style: TextStyle(
+                                    color: Colors.red[200],
+                                    fontSize: 40,
+                                    fontWeight: FontWeight.w300)),
                             GestureDetector(
-                              onTap: () => Navigator.push(
+                              onTap: !usdToInr ? () => Navigator.push(
                                   context,
                                   PageTransition(
-                                      child: RedBackGround(),
-                                      type: PageTransitionType.upToDown,
-                                      duration: Duration(milliseconds: 200))),
-                              child: Text("100",
+                                    child: RedBackGround(),
+                                    type: PageTransitionType.upToDown,
+                                    duration: Duration(milliseconds: 200)
+                                  )) :
+                                  () => print("Not done"),
+                              child: Text(
+                                  Constants.redCurrency == null ? "0.00" : Constants.redCurrency,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontFamily: 'Quicksand',
                                       fontSize: 70,
                                       fontWeight: FontWeight.bold)),
-                            ),
-                            Text("\$",
-                                style: TextStyle(
-                                    color: Colors.red[200],
-                                    fontSize: 40,
-                                    fontWeight: FontWeight.w300))
+                            )
                           ],
                         ),
-                        Text("USD",
+                        GestureDetector(                                              
+                          child: Text(
+                            "USD",
                             style: TextStyle(
-                                color: Colors.red[200],
-                                fontFamily: 'Quicksand',
-                                fontSize: 25,
-                                fontWeight: FontWeight.bold)),
+                                  color: Colors.red[200],
+                                  fontFamily: 'Quicksand',
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold)),
+                        ),
                         SizedBox(
-                          height: 1,
+                          height: 20,
                         )
                       ],
                     ),
                   ),
                 ),
+
                 // The White Container
                 Container(
                   width: MediaQuery.of(context).size.width,
@@ -104,9 +117,9 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         SizedBox(
-                          height: 1,
+                          height: 20,
                         ),
-                        Text("USD",
+                        Text("INR",
                             style: TextStyle(
                                 color: Colors.red[200],
                                 fontFamily: 'Quicksand',
@@ -115,30 +128,32 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+                            Text("₹",
+                                style: TextStyle(
+                                    color: Colors.red[200],
+                                    fontSize: 40,
+                                    fontWeight: FontWeight.w300)),                           
                             GestureDetector(
-                              onTap: () => Navigator.push(
+                              onTap: usdToInr ? () => Navigator.push(
                                   context,
                                   PageTransition(
                                     child: WhiteBackGround(),
                                     type: PageTransitionType.downToUp,
                                     duration: Duration(milliseconds: 200)
-                                  )),
-                              child: Text("100",
+                                  )) :
+                                  () => print("Not done"),
+                              child: Text(
+                                  Constants.whiteCurrency == null ? "0.00" : Constants.whiteCurrency,
                                   style: TextStyle(
                                       color: Colors.red,
                                       fontFamily: 'Quicksand',
                                       fontSize: 70,
                                       fontWeight: FontWeight.bold)),
-                            ),
-                            Text("\$",
-                                style: TextStyle(
-                                    color: Colors.red[200],
-                                    fontSize: 40,
-                                    fontWeight: FontWeight.w300))
+                            )                  
                           ],
                         ),
                         Text(
-                          "Dollar",
+                          "Indian Rupee",
                           style: TextStyle(
                               color: Colors.red,
                               fontFamily: 'Quicksand',
@@ -164,8 +179,20 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                     } else {
                       _animationController.reverse();
                     }
-                    up = !up;
-                  });                  
+
+                    // Setting the bool for convertion
+                    if(!usdToInr) {
+                      usdToInr = true;
+                    } else {
+                      usdToInr = false;
+                    }
+
+                    up = !up; 
+                    // usdToInr = !usdToInr;
+                    
+                  });
+                  // print(usdToInr);
+                  // print(Constants.redCurrency);            
                 },
                 child: Container(
                   height: 150,
