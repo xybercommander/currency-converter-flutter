@@ -94,6 +94,7 @@ class _RedBackGroundState extends State<RedBackGround> {
                 onPressed: () {
                   setState(() {
                     output = "";
+                    decimal = 0;
                   });
                 },
                 child: Text("tap to delete", style: TextStyle(color: Colors.red[200]),),
