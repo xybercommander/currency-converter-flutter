@@ -2,6 +2,7 @@ import 'package:currency_converter/helper/constants.dart';
 import 'package:currency_converter/helper/helperfunctions.dart';
 import 'package:currency_converter/screens/redTyper.dart';
 import 'package:currency_converter/screens/whiteTyper.dart';
+import 'package:currency_converter/services/currencyAPI.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -13,6 +14,8 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   bool up = true;
   bool usdToInr = true;
+
+  Currency _currency = new Currency();
 
 
   // Helper Functions (Shared Preference)
@@ -50,6 +53,8 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
 
     getRedCurrency();
     getWhiteCurrency();
+    // _currency.getData();
+    _currency.getlen();
   }
 
 
