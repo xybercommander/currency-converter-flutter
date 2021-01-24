@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:currency_converter/helper/helperfunctions.dart';
 import 'package:http/http.dart';
 
 class Currency {
@@ -12,7 +13,7 @@ class Currency {
   ];
 
 
-  Future<void> getData() async {
+  Future<void> callDataFromAPI() async {
     try {
 
 
@@ -38,18 +39,19 @@ class Currency {
 
       }
 
+      print("Data collected!!");
       
     } catch (e){
       print(e.toString());
     }
   }
 
-  Future<void> getlen() async {
-    await getData();
-
-    var jsonData = json.encode(currencyData);
-    print(jsonData);
-
-    // print(currencyData['INR']);
+  // SAVING THE DATA IN SHARED PREFERENCES
+  Future<void> saveData() async {
+    await callDataFromAPI();
+    String jsonData = json.encode(currencyData);
+    print("Length of json : ${jsonData.length}");
+    HelperFunctions().saveCurrencyMapJsonData(jsonData);
   }
+
 }

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:currency_converter/helper/constants.dart';
 import 'package:currency_converter/helper/helperfunctions.dart';
 import 'package:currency_converter/screens/redTyper.dart';
@@ -14,6 +16,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   bool up = true;
   bool usdToInr = true;
+  bool save = false;
 
   Currency _currency = new Currency();
 
@@ -21,7 +24,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   // Helper Functions (Shared Preference)
   getRedCurrency() async {
     String red = await HelperFunctions().getRedCurrency();
-    print(red);
+    print("Red currency : $red");
     setState(() {
       Constants.redCurrency = red;
     });
@@ -29,10 +32,20 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
 
   getWhiteCurrency() async {
     String white = await HelperFunctions().getWhiteCurrency();
-    print(white);
+    print("White currency : $white");
     setState(() {
       Constants.whiteCurrency = white;
     });
+  }
+
+
+  getCurrencyData() async {
+    dynamic jsonData = await HelperFunctions().getCurrencyMapJsonData();
+    Map data = json.decode(jsonData);
+    print(data.length);
+
+    // Calling the data once again just to update the currencies
+    _currency.saveData();
   }
 
 
@@ -49,12 +62,12 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
       vsync: this,
       duration: Duration(milliseconds: 150)
     );
-    super.initState();
 
     getRedCurrency();
     getWhiteCurrency();
-    // _currency.getData();
-    _currency.getlen();
+    getCurrencyData();
+
+    super.initState();
   }
 
 
