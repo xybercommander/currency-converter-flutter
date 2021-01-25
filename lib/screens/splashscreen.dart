@@ -1,4 +1,4 @@
-import 'package:currency_converter/main.dart';
+// import 'package:currency_converter/main.dart';
 import 'package:currency_converter/services/currencyAPI.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -31,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(      
-      backgroundColor: Colors.blueGrey[900],
+      backgroundColor: Colors.red,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -41,11 +41,11 @@ class _SplashScreenState extends State<SplashScreen> {
             size: 80,
           ),
           Padding(              
-            padding: EdgeInsets.only(top: 400),
+            padding: EdgeInsets.only(top: 200),
             child: Text(
               'Developed by Xyber',
               style: TextStyle(
-                color: Colors.grey[700],
+                color: Colors.white,
                 letterSpacing: 2,
                 fontSize: 20
               ),
