@@ -66,7 +66,7 @@ class _WhiteBackGroundState extends State<WhiteBackGround> {
 
           Navigator.pop(context);
         },
-        child: Text("✓", style: TextStyle(color: Colors.white, fontSize: 17),),
+        child: Icon(Icons.check, color: Colors.white,),
         shape: CircleBorder(),
       )
     );

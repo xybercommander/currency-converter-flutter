@@ -2,7 +2,9 @@ import 'dart:convert';
 
 import 'package:currency_converter/helper/constants.dart';
 import 'package:currency_converter/helper/helperfunctions.dart';
+import 'package:currency_converter/screens/redCurrencyName.dart';
 import 'package:currency_converter/screens/redTyper.dart';
+import 'package:currency_converter/screens/whiteCurrencyName.dart';
 import 'package:currency_converter/screens/whiteTyper.dart';
 import 'package:currency_converter/services/currencyAPI.dart';
 import 'package:flutter/material.dart';
@@ -144,7 +146,14 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                           ],
                         ),
                         GestureDetector( 
-                          onTap: () => getRedCurrency(),                                             
+                          onTap: () => Navigator.push(
+                            context,
+                            PageTransition(
+                              child: RedCurrency(),
+                              type: PageTransitionType.rightToLeftWithFade,
+                              duration: Duration(milliseconds: 200)
+                            )
+                          ),                                             
                           child: Text(
                             "USD",
                             style: TextStyle(
@@ -173,12 +182,23 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                         SizedBox(
                           height: 20,
                         ),
-                        Text("INR",
+                        GestureDetector( 
+                          onTap: () => Navigator.push(
+                            context,
+                            PageTransition(
+                              child: WhiteCurrency(),
+                              type: PageTransitionType.rightToLeftWithFade,
+                              duration: Duration(milliseconds: 200)
+                            )
+                          ),                                             
+                          child: Text(
+                            "INR",
                             style: TextStyle(
-                                color: Colors.red[200],
-                                fontFamily: 'Quicksand',
-                                fontSize: 25,
-                                fontWeight: FontWeight.bold)),
+                                  color: Colors.red[200],
+                                  fontFamily: 'Quicksand',
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold)),
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

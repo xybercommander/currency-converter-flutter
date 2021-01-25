@@ -67,7 +67,7 @@ class _RedBackGroundState extends State<RedBackGround> {
 
           Navigator.pop(context);
         },
-        child: Text("✓", style: TextStyle(color: Colors.white54, fontSize: 17),),
+        child: Icon(Icons.check, color: Colors.white54,),
         shape: CircleBorder(),
       )
     );
