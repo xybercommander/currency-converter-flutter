@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:currency_converter/helper/constants.dart';
 import 'package:currency_converter/helper/helperfunctions.dart';
 import 'package:currency_converter/screens/redCurrencyName.dart';
@@ -27,18 +26,46 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
 
   // Helper Functions (Shared Preference)
   getRedCurrency() async {
-    String red = await HelperFunctions().getRedCurrencyValue();
-    print("Red currency : $red");
+    String redCurrencyValue = await HelperFunctions().getRedCurrencyValue();
+    String redCurr = await HelperFunctions().getRedCurrency();
+    String redCountry = await HelperFunctions().getRedCurrencyCountry();
+
+    // print("Red currency : $redCurrencyValue");
+    // print("Red curr : $redCurr");
+    // print("Red currencyCountry : $redCountry");
+
+    if(redCurrencyValue == null || redCurr == null || redCountry == null) {
+      redCurrencyValue = "0.00";
+      redCurr = "USD";
+      redCountry = "United States Dollar";
+    }
+
     setState(() {
-      Constants.redCurrency = red;
+      Constants.redCurrency = redCurrencyValue;
+      Constants.redCurr = redCurr;
+      Constants.redCountry = redCountry;
     });
   }
 
   getWhiteCurrency() async {
-    String white = await HelperFunctions().getWhiteCurrencyValue();
-    print("White currency : $white");
+    String whiteCurrencyValue = await HelperFunctions().getWhiteCurrencyValue();
+    String whiteCurr = await HelperFunctions().getWhiteCurrency();
+    String whiteCountry = await HelperFunctions().getWhiteCurrencyCountry();
+
+    // print("White currency : $whiteCurrencyValue");
+    // print("White curr : $whiteCurr");
+    // print("White currencyCountry : $whiteCountry");
+
+    if(whiteCurrencyValue == null || whiteCurr == null || whiteCountry == null) {
+      whiteCurrencyValue = "0.00";
+      whiteCurr = "INR";
+      whiteCountry = "Indian Rupee";
+    }
+
     setState(() {
-      Constants.whiteCurrency = white;
+      Constants.whiteCurrency = whiteCurrencyValue;
+      Constants.whiteCurr = whiteCurr;
+      Constants.whiteCountry = whiteCountry;
     });
   }
 

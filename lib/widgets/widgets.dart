@@ -1,4 +1,5 @@
 import 'package:currency_converter/helper/constants.dart';
+import 'package:currency_converter/helper/helperfunctions.dart';
 import 'package:flutter/material.dart';
 
 currencyList(context, Color color1, Color color2, bool isRed, bool up) {
@@ -69,6 +70,9 @@ nameWidget(String countryName, String currency, Color color1, Color color2, bool
           Constants.redCurr = currency;
           Constants.redCountry = countryName;
 
+          HelperFunctions().saveRedCurrency(Constants.redCurr);
+          HelperFunctions().saveRedCurrencyCountry(Constants.redCountry);
+
           // print(up);
           calculate(isRed, up);
 
@@ -76,6 +80,9 @@ nameWidget(String countryName, String currency, Color color1, Color color2, bool
         } else {
           Constants.whiteCurr = currency;
           Constants.whiteCountry = countryName;
+
+          HelperFunctions().saveWhiteCurrency(Constants.whiteCurr);
+          HelperFunctions().saveWhiteCurrencyCountry(Constants.whiteCountry);
 
           // print(up);
           calculate(isRed, up);
