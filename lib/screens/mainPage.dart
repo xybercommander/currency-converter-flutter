@@ -23,9 +23,11 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   Currency _currency = new Currency();
 
 
+
+
   // Helper Functions (Shared Preference)
   getRedCurrency() async {
-    String red = await HelperFunctions().getRedCurrency();
+    String red = await HelperFunctions().getRedCurrencyValue();
     print("Red currency : $red");
     setState(() {
       Constants.redCurrency = red;
@@ -33,7 +35,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   }
 
   getWhiteCurrency() async {
-    String white = await HelperFunctions().getWhiteCurrency();
+    String white = await HelperFunctions().getWhiteCurrencyValue();
     print("White currency : $white");
     setState(() {
       Constants.whiteCurrency = white;
@@ -41,14 +43,17 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   }
 
 
-  getCurrencyData() async {
+  getCurrencyData(Map data) async {
     dynamic jsonData = await HelperFunctions().getCurrencyMapJsonData();
-    Map data = json.decode(jsonData);
-    print(data.length);
+    Map response = json.decode(jsonData);
+    Constants.currencyJson = response;
+
 
     // Calling the data once again just to update the currencies
     _currency.saveData();
   }
+
+
 
 
 
@@ -67,7 +72,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
 
     getRedCurrency();
     getWhiteCurrency();
-    getCurrencyData();
+    getCurrencyData(Constants.currencyJson);
 
     super.initState();
   }
@@ -100,20 +105,37 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                         SizedBox(
                           height: 1,
                         ),
-                        Text(
-                          "Dollar",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'Quicksand',
-                              fontSize: 25),
+                        GestureDetector(
+                          onTap: () {
+                            print(Constants.redCurr);
+                            print(Constants.redCountry);
+                            print(Constants.currencyJson[Constants.redCurr][Constants.whiteCurr]);
+
+                            Navigator.push(
+                              context,
+                              PageTransition(
+                                child: RedCurrency(up: up,),
+                                type: PageTransitionType.rightToLeftWithFade,
+                                duration: Duration(milliseconds: 200)
+                              )
+                            );                        
+                          },
+                          child: Text(
+                            "${Constants.redCountry}",
+                            style: TextStyle(
+                                color: Colors.white70,
+                                fontFamily: 'Quicksand',
+                                fontWeight: FontWeight.w700,
+                                fontSize: 25),
+                          ),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("\$",
+                            Text("${Constants.currencySymbols[Constants.redCurr]}",
                                 style: TextStyle(
                                     color: Colors.red[200],
-                                    fontSize: 40,
+                                    fontSize: 30,
                                     fontWeight: FontWeight.w300)),
                             GestureDetector(
                               onTap: !usdToInr ? () => Navigator.push(
@@ -149,13 +171,13 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                           onTap: () => Navigator.push(
                             context,
                             PageTransition(
-                              child: RedCurrency(),
+                              child: RedCurrency(up: up,),
                               type: PageTransitionType.rightToLeftWithFade,
                               duration: Duration(milliseconds: 200)
                             )
                           ),                                             
                           child: Text(
-                            "USD",
+                            "${Constants.redCurr}",
                             style: TextStyle(
                                   color: Colors.red[200],
                                   fontFamily: 'Quicksand',
@@ -186,13 +208,13 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                           onTap: () => Navigator.push(
                             context,
                             PageTransition(
-                              child: WhiteCurrency(),
+                              child: WhiteCurrency(up: up,),
                               type: PageTransitionType.rightToLeftWithFade,
                               duration: Duration(milliseconds: 200)
                             )
                           ),                                             
                           child: Text(
-                            "INR",
+                            "${Constants.whiteCurr}",
                             style: TextStyle(
                                   color: Colors.red[200],
                                   fontFamily: 'Quicksand',
@@ -202,10 +224,10 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("₹",
+                            Text("${Constants.currencySymbols[Constants.whiteCurr]}",
                                 style: TextStyle(
                                     color: Colors.red[200],
-                                    fontSize: 40,
+                                    fontSize: 30,
                                     fontWeight: FontWeight.w300)),                           
                             GestureDetector(
                               onTap: usdToInr ? () => Navigator.push(
@@ -237,12 +259,29 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                             )                  
                           ],
                         ),
-                        Text(
-                          "Indian Rupee",
-                          style: TextStyle(
-                              color: Colors.red,
-                              fontFamily: 'Quicksand',
-                              fontSize: 25),
+                        GestureDetector(
+                          onTap: () {
+                            print(Constants.whiteCurr);
+                            print(Constants.whiteCountry);
+                            print(Constants.currencyJson[Constants.whiteCurr][Constants.redCurr]);
+
+                            Navigator.push(
+                              context,
+                              PageTransition(
+                                child: WhiteCurrency(up: up,),
+                                type: PageTransitionType.rightToLeftWithFade,
+                                duration: Duration(milliseconds: 200)
+                              )
+                            ); 
+                          },
+                          child: Text(
+                            "${Constants.whiteCountry}",
+                            style: TextStyle(
+                                color: Colors.red[300],
+                                fontFamily: 'Quicksand',
+                                fontWeight: FontWeight.w700,
+                                fontSize: 25),
+                          ),
                         ),
                         SizedBox(
                           height: 1,

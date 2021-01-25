@@ -2,7 +2,11 @@ import 'package:currency_converter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class RedCurrency extends StatefulWidget {
-  @override
+
+  final bool up;
+  const RedCurrency ({Key key, this.up}): super(key: key);
+
+  @override  
   _RedCurrencyState createState() => _RedCurrencyState();
 }
 
@@ -27,7 +31,7 @@ class _RedCurrencyState extends State<RedCurrency> {
                 )
               ],
             ),
-            currencyList(context, Colors.white, Colors.red[200])
+            currencyList(context, Colors.white, Colors.red[200], true, widget.up)
           ],
         ),
       ),

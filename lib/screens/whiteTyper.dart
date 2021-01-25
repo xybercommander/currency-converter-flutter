@@ -56,12 +56,13 @@ class _WhiteBackGroundState extends State<WhiteBackGround> {
         onPressed: () {
           setState(() {
             Constants.whiteCurrency = output;
-            Constants.redCurrency = convInrToUsd(output);
+            Constants.redCurrency = convWhiteToRed(output);
+            print("Pressed");
           });
 
           // Saving the data
-          HelperFunctions().saveRedCurrency(Constants.redCurrency);
-          HelperFunctions().saveWhiteCurrency(Constants.whiteCurrency);
+          HelperFunctions().saveRedCurrencyValue(Constants.redCurrency);
+          HelperFunctions().saveWhiteCurrencyValue(Constants.whiteCurrency);
           print("saved");
 
           Navigator.pop(context);
@@ -73,10 +74,11 @@ class _WhiteBackGroundState extends State<WhiteBackGround> {
   }
 
 
-  String convInrToUsd(String dollar) {
-    var inr = double.parse(dollar);
-    var usd = inr / 72.98;
-    return usd.toStringAsFixed(2);
+  String convWhiteToRed(String currencyValue) {
+    var factor = Constants.currencyJson[Constants.whiteCurr][Constants.redCurr];
+    var value = double.parse(currencyValue);
+    var calculatedValue = value * factor;
+    return calculatedValue.toStringAsFixed(2);
   }
 
 

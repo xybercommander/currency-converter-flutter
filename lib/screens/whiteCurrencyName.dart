@@ -2,6 +2,10 @@ import 'package:currency_converter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class WhiteCurrency extends StatefulWidget {
+
+  final bool up;
+  const WhiteCurrency ({Key key, this.up}): super(key: key);
+
   @override
   _WhiteCurrencyState createState() => _WhiteCurrencyState();
 }
@@ -26,7 +30,7 @@ class _WhiteCurrencyState extends State<WhiteCurrency> {
                 )
               ],
             ),
-            currencyList(context, Colors.red, Colors.red[200])
+            currencyList(context, Colors.red, Colors.red[200], false, widget.up)
           ],
         ),
       ),

@@ -57,12 +57,12 @@ class _RedBackGroundState extends State<RedBackGround> {
         onPressed: () {
           setState(() {
             Constants.redCurrency = output;
-            Constants.whiteCurrency = convUsdToInr(output);          
+            Constants.whiteCurrency = convRedToWhite(output);
           });
 
           // Saving the data
-          HelperFunctions().saveWhiteCurrency(Constants.whiteCurrency);
-          HelperFunctions().saveRedCurrency(Constants.redCurrency);
+          HelperFunctions().saveWhiteCurrencyValue(Constants.whiteCurrency);
+          HelperFunctions().saveRedCurrencyValue(Constants.redCurrency);
           print("saved");
 
           Navigator.pop(context);
@@ -74,10 +74,11 @@ class _RedBackGroundState extends State<RedBackGround> {
   }
 
 
-  String convUsdToInr(String dollar) {
-    var usd = double.parse(dollar);
-    var inr = usd * 72.98;
-    return inr.toStringAsFixed(2);
+  String convRedToWhite(String currencyValue) {
+    var factor = Constants.currencyJson[Constants.redCurr][Constants.whiteCurr];
+    var value = double.parse(currencyValue);
+    var calculatedValue = value * factor;
+    return calculatedValue.toStringAsFixed(2);
   }
 
 

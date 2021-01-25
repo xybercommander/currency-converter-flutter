@@ -2,22 +2,29 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class HelperFunctions {
 
-  static String sharedPreferenceRedKey = "REDCURRENCY";
-  static String sharedPreferenceWhiteKey = "WHITECURRENCY";
+  static String sharedPreferenceRedCurrencyValueKey = "REDCURRENCYVALUE";
+  static String sharedPreferenceRedCurrency = "REDCURRENCY";
+  static String sharedPreferenceRedCurrencyCountry = "REDCURRENCYCOUNTRY";
+
+
+  static String sharedPreferenceWhiteCurrencyValueKey = "WHITECURRENCYVALUE";
+  static String sharedPreferenceWhiteCurrency = "WHITECURRENCY";
+  static String sharedPreferenceWhiteCurrencyCountry = "WHITECURRENCYCOUNTRY";
+
   static String sharedPreferenceCurrencyMapJsonDataKey = "CURRENCYMAP";
 
   // *******************
   /* SET FUNCTIONS */
   // *******************
 
-  Future<void> saveRedCurrency(String value) async {
+  Future<void> saveRedCurrencyValue(String value) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    return await preferences.setString(sharedPreferenceRedKey, value);
+    return await preferences.setString(sharedPreferenceRedCurrencyValueKey, value);
   }
 
-  Future<void> saveWhiteCurrency(String value) async {
+  Future<void> saveWhiteCurrencyValue(String value) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    return await preferences.setString(sharedPreferenceWhiteKey, value);
+    return await preferences.setString(sharedPreferenceWhiteCurrencyValueKey, value);
   }
 
 
@@ -30,25 +37,34 @@ class HelperFunctions {
 
 
 
+
+
   // *******************
   /* GET FUNCTIONS */
   // *******************
 
-  Future<String> getRedCurrency() async {
+  Future<String> getRedCurrencyValue() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    return preferences.getString(sharedPreferenceRedKey);
+    return preferences.getString(sharedPreferenceRedCurrencyValueKey);
   }
 
-  Future<String> getWhiteCurrency() async {
+  Future<String> getWhiteCurrencyValue() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    return preferences.getString(sharedPreferenceWhiteKey);
+    return preferences.getString(sharedPreferenceWhiteCurrencyValueKey);
   }
 
 
   // This get function is for the currency Data Json
   Future<String> getCurrencyMapJsonData() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    return preferences.getString(sharedPreferenceCurrencyMapJsonDataKey);
+    String value = '';
+    value = preferences.getString(sharedPreferenceCurrencyMapJsonDataKey);
+    if(value != '') {
+      print("Got data!");
+    } else {
+      print("FAILED TO GET DATA");
+    }
+    return value;
   }
 
 
