@@ -70,20 +70,40 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   }
 
 
-  getCurrencyData(Map data) async {
+
+  Future<bool> getCurrencyData(Map data) async {
     dynamic jsonData = await HelperFunctions().getCurrencyMapJsonData();
-    Map response = json.decode(jsonData);
+    Map response;
+    bool flag = true;
+
+
+    if(jsonData != null) {
+      response = json.decode(jsonData);
+      flag = false;
+    }
     Constants.currencyJson = response;
 
 
     // Calling the data once again just to update the currencies
     _currency.saveData();
+
+    return flag;
+  }
+
+  checkCurrencyData() async {
+    bool dataFlag = await getCurrencyData(Constants.currencyJson);
+    if(dataFlag == false) {
+      _currency.saveData();
+      getCurrencyData(Constants.currencyJson);
+    } else {
+      getCurrencyData(Constants.currencyJson);
+    }
   }
 
 
 
 
-
+  // Animation Tween
   final Tween<double> turnsTween = Tween<double>(
     begin: 1,
     end: 1.5
@@ -97,9 +117,9 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
       duration: Duration(milliseconds: 150)
     );
 
+    checkCurrencyData();
     getRedCurrency();
     getWhiteCurrency();
-    getCurrencyData(Constants.currencyJson);
 
     super.initState();
   }
@@ -135,14 +155,14 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                         GestureDetector(
                           onTap: () {
                             print(Constants.redCurr);
-                            print(Constants.redCountry);
+                            print(Constants.redCountry);                          
                             print(Constants.currencyJson[Constants.redCurr][Constants.whiteCurr]);
 
                             Navigator.push(
                               context,
                               PageTransition(
                                 child: RedCurrency(up: up,),
-                                type: PageTransitionType.rightToLeftWithFade,
+                                type: PageTransitionType.upToDown,
                                 duration: Duration(milliseconds: 200)
                               )
                             );                        

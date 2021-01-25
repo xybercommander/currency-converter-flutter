@@ -13,6 +13,8 @@ class HelperFunctions {
 
   static String sharedPreferenceCurrencyMapJsonDataKey = "CURRENCYMAP";
 
+  static String sharedPreferenceOpenKey = "OPENKEY";
+
   // *******************
   /* SET FUNCTIONS */
   // *******************
@@ -51,6 +53,11 @@ class HelperFunctions {
     return await preferences.setString(sharedPreferenceWhiteCurrencyCountryKey, value);
   }
 
+  // This set function is for the intro page bool
+  Future<void> saveOpened(bool value) async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    return await preferences.setBool(sharedPreferenceOpenKey, value);
+  }
 
 
   // This set function is for the currency Data Json
@@ -101,6 +108,13 @@ class HelperFunctions {
   Future<String> getWhiteCurrencyCountry() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     return preferences.getString(sharedPreferenceWhiteCurrencyCountryKey);
+  }
+
+
+  // This get function is for the  intro bool
+  Future<bool> getOpened() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    return preferences.getBool(sharedPreferenceOpenKey);
   }
 
 

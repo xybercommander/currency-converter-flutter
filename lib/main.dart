@@ -1,3 +1,4 @@
+import 'package:currency_converter/helper/helperfunctions.dart';
 import 'package:currency_converter/screens/mainPage.dart';
 import 'package:currency_converter/screens/splashscreen.dart';
 import 'package:flutter/material.dart';

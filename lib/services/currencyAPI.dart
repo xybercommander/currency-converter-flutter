@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:currency_converter/helper/constants.dart';
 import 'package:currency_converter/helper/helperfunctions.dart';
 import 'package:http/http.dart';
 
@@ -49,6 +50,7 @@ class Currency {
   // SAVING THE DATA IN SHARED PREFERENCES
   Future<void> saveData() async {
     await callDataFromAPI();
+    Constants.currencyJson = currencyData;
     String jsonData = json.encode(currencyData);
     print("Length of json : ${jsonData.length}");
     HelperFunctions().saveCurrencyMapJsonData(jsonData);
