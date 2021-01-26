@@ -17,6 +17,15 @@ This API calls back Currency Convertion Factors for 32 other Currencies for the 
   https://github.com/xybercommander/flutter-currency-conv/blob/master/lib/services/currencyAPI.dart
 </strong>
 
+## Packages Used
+<ul>
+  <li><a href="https://pub.dev/packages/http">http</a> : For API calls</li>
+  <li><a href="https://pub.dev/packages/page_transition">page_transition</a> : For Page Transition animations</li>
+  <li><a href="https://pub.dev/packages/shared_preferences">shared_preferences</a> : For storing data</li>
+  <li><a href="https://pub.dev/packages/flare_flutter">flare_flutter</a> : For Flare animation</li>
+  <li><a href="https://pub.dev/packages/shimmer">shimmer</a> : For shimmer effect in text</li>
+</ul>
+
 ## All the different Screens for the application are shown below
 <ul>
   <li>
