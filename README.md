@@ -50,5 +50,5 @@ This API calls back Currency Convertion Factors for 32 other Currencies for the 
 </ul>
 
 
-I made this open source so y'all can experiment and add more things in it!😄<br>
+I made this project open source so y'all can experiment and add more things in it!😄<br>
 If you like this project, don't forget to star it😄❤️
