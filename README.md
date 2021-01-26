@@ -1,10 +1,11 @@
 # Currency Converter
 ## A Flutter project made with ❤️
 
-A Flutter Project to convert 33 Popular currencies around the work.
+A Flutter Project to Convert 33 Popular Currencies Around the world.
 
 ## The UI for the app
-I got the inspiration of this app's UI design from this beautiful interface by <a href="https://dribbble.com/Volorf">Oleg Frolov</a>
+<img src="https://cdn.dribbble.com/users/108183/screenshots/4693061/stylish_currency_converter_by_volorf.png?compress=1&resize=800x600">
+I got the inspiration of this app's UI design from this beautiful interface by <a href="https://dribbble.com/Volorf" target="_blank">Oleg Frolov</a></br>
 The link to the Dribbble Post is : https://dribbble.com/shots/4693061-Stylish-Currency-Converter
 
 ## The Api Used
