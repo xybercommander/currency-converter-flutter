@@ -1,16 +1,54 @@
-# currency_converter
+# Currency Converter
+## A Flutter project made with ❤️
 
-A new Flutter project.
+A Flutter Project to Convert 33 Popular Currencies Around the world.
 
-## Getting Started
+## The UI for the app
+<img src="https://cdn.dribbble.com/users/108183/screenshots/4693061/stylish_currency_converter_by_volorf.png?compress=1&resize=500x400">
+I got the inspiration of this app's UI design from this beautiful interface by <a href="https://dribbble.com/Volorf" target="_blank">Oleg Frolov</a></br>
+The link to the Dribbble Post is : https://dribbble.com/shots/4693061-Stylish-Currency-Converter
 
-This project is a starting point for a Flutter application.
+## The Api Used
+The API which I used in this project is : https://api.exchangeratesapi.io/latest?base=THEBASECURRENCY<br>
+This API calls back Currency Convertion Factors for 32 other Currencies for the base currency.
+<strong>Therefore I made a Map of 33*33 elements which can be found in the file currencyAPI.dart : <br>
+  https://github.com/xybercommander/flutter-currency-conv/blob/master/lib/services/currencyAPI.dart
+</strong>
 
-A few resources to get you started if this is your first Flutter project:
+## All the different Screens for the application are shown below
+<ul>
+  <li>
+    <h3>Splash Screen</h3>
+    <br>     
+    <img src="https://i.imgur.com/XHTRwmJ.png" width="300" height="600">
+  </li>
+  <li>
+    <h3>Main Screen Page</h3>
+    <br>
+    <img src="https://i.imgur.com/jZhVUgU.png" width="300" height="600">
+  </li>
+  <li>
+    <h3>Red Typer Page</h3>
+    <br>
+    <img src="https://i.imgur.com/0F1oDh3.png" width="300" height="600">
+  </li>
+  <li>
+    <h3>White Typer Page</h3>
+    <br>
+    <img src="https://i.imgur.com/djsSqBu.png" width="300" height="600">
+  </li>
+  <li>
+    <h3>Red Currencies Page</h3>
+    <br>
+    <img src="https://i.imgur.com/09luJ06.png" width="300" height="600">
+  </li>
+  <li>
+    <h3>White Currencies Page</h3>
+    <br>
+    <img src="https://i.imgur.com/hL1TLqr.png" width="300" height="600">
+  </li>
+</ul>
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+I made this project open source so y'all can experiment and add more things in it!😄<br>
+If you like this project, don't forget to star it😄❤️
