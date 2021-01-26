@@ -20,7 +20,7 @@ This API calls back Currency Convertion Factors for 32 other Currencies for the 
   <li>
     <h2>Main Screen Page</h2>
     <br>
-    <img src="https://i.imgur.com/jZhVUgU.png" width="100" height="250">
+    <img src="https://i.imgur.com/jZhVUgU.png" width="300" height="600">
   </li>
   <li>
     <h2>Red Typer Page</h2>
