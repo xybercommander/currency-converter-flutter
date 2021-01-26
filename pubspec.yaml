@@ -23,7 +23,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  page_transition: ^1.1.6
+  page_transition: ^1.1.7+6
+  auto_size_text: ^2.1.0
   http: ^0.12.2
   shared_preferences: ^0.5.12+4
   flutter_spinkit: "^4.1.2"

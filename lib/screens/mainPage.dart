@@ -162,7 +162,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                               context,
                               PageTransition(
                                 child: RedCurrency(up: up,),
-                                type: PageTransitionType.upToDown,
+                                type: PageTransitionType.rightToLeftWithFade,
                                 duration: Duration(milliseconds: 200)
                               )
                             );                        
@@ -176,43 +176,49 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                                 fontSize: 25),
                           ),
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text("${Constants.currencySymbols[Constants.redCurr]}",
-                                style: TextStyle(
-                                    color: Colors.red[200],
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w300)),
-                            GestureDetector(
-                              onTap: !usdToInr ? () => Navigator.push(
-                                  context,
-                                  PageTransition(
-                                    child: RedBackGround(),
-                                    type: PageTransitionType.upToDown,
-                                    duration: Duration(milliseconds: 200)
-                                  )) :
-                                  () {
-                                    up = !up;
-                                    usdToInr = !usdToInr;
-                                    _animationController.forward();
-                                    Navigator.push(
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width / 1.2,
+                          child: FittedBox(
+                            fit: BoxFit.scaleDown,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text("${Constants.currencySymbols[Constants.redCurr]}",
+                                    style: TextStyle(
+                                        color: Colors.red[100],
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.w300)),
+                                GestureDetector(
+                                  onTap: !usdToInr ? () => Navigator.push(
                                       context,
                                       PageTransition(
                                         child: RedBackGround(),
-                                        type: PageTransitionType.upToDown,
+                                        type: PageTransitionType.topToBottom,
                                         duration: Duration(milliseconds: 200)
-                                    ));
-                                  },
-                              child: Text(
-                                  Constants.redCurrency == null ? "0.00" : Constants.redCurrency,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: 'Quicksand',
-                                      fontSize: 70,
-                                      fontWeight: FontWeight.bold)),
-                            )
-                          ],
+                                      )) :
+                                      () {
+                                        up = !up;
+                                        usdToInr = !usdToInr;
+                                        _animationController.forward();
+                                        Navigator.push(
+                                          context,
+                                          PageTransition(
+                                            child: RedBackGround(),
+                                            type: PageTransitionType.topToBottom,
+                                            duration: Duration(milliseconds: 200)
+                                        ));
+                                      },
+                                  child: Text(
+                                    Constants.redCurrency == null ? "0.00" : Constants.redCurrency,
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: 'Quicksand',
+                                        fontSize: 70,
+                                        fontWeight: FontWeight.bold)),
+                                )
+                              ],
+                            ),
+                          ),
                         ),
                         GestureDetector( 
                           onTap: () => Navigator.push(
@@ -268,43 +274,49 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                                   fontSize: 25,
                                   fontWeight: FontWeight.bold)),
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text("${Constants.currencySymbols[Constants.whiteCurr]}",
-                                style: TextStyle(
-                                    color: Colors.red[200],
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w300)),                           
-                            GestureDetector(
-                              onTap: usdToInr ? () => Navigator.push(
-                                  context,
-                                  PageTransition(
-                                    child: WhiteBackGround(),
-                                    type: PageTransitionType.downToUp,
-                                    duration: Duration(milliseconds: 200)
-                                  )) :
-                                  () {
-                                    up = !up;
-                                    usdToInr = !usdToInr;
-                                    _animationController.reverse();
-                                    Navigator.push(
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width / 1.2,
+                          child: FittedBox(
+                            fit: BoxFit.scaleDown,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text("${Constants.currencySymbols[Constants.whiteCurr]}",
+                                    style: TextStyle(
+                                        color: Colors.red[200],
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.w300)),
+                                GestureDetector(
+                                  onTap: usdToInr ? () => Navigator.push(
                                       context,
                                       PageTransition(
                                         child: WhiteBackGround(),
-                                        type: PageTransitionType.downToUp,
+                                        type: PageTransitionType.bottomToTop,
                                         duration: Duration(milliseconds: 200)
-                                    ));
-                                  },
-                              child: Text(
-                                  Constants.whiteCurrency == null ? "0.00" : Constants.whiteCurrency,
-                                  style: TextStyle(
-                                      color: Colors.red,
-                                      fontFamily: 'Quicksand',
-                                      fontSize: 70,
-                                      fontWeight: FontWeight.bold)),
-                            )                  
-                          ],
+                                      )) :
+                                      () {
+                                        up = !up;
+                                        usdToInr = !usdToInr;
+                                        _animationController.reverse();
+                                        Navigator.push(
+                                          context,
+                                          PageTransition(
+                                            child: WhiteBackGround(),
+                                            type: PageTransitionType.bottomToTop,
+                                            duration: Duration(milliseconds: 200)
+                                        ));
+                                      },
+                                  child: Text(
+                                      Constants.whiteCurrency == null ? "0.00" : Constants.whiteCurrency,
+                                      style: TextStyle(
+                                          color: Colors.red,
+                                          fontFamily: 'Quicksand',
+                                          fontSize: 70,
+                                          fontWeight: FontWeight.bold)),
+                                )                  
+                              ],
+                            ),
+                          ),
                         ),
                         GestureDetector(
                           onTap: () {

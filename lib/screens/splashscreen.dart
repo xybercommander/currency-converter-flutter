@@ -38,10 +38,10 @@ class _SplashScreenState extends State<SplashScreen> {
     if(value == false || value == null) {
       HelperFunctions().saveOpened(opened);
       opened = false;
-      initialPlayer(opened);
+      // initialPlayer(opened);
     } else {
       opened = true;
-      initialPlayer(opened);
+      // initialPlayer(opened);
     }
 
     print(opened);
