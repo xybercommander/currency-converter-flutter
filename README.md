@@ -16,7 +16,7 @@ This API calls back Currency Convertion Factors for 32 other Currencies for the 
 </strong>
 
 ## All the different Screens for the application are shown below
-<p>
+<p style="display:flex,align-items:center,justify-content:space-evenly">
   <img src="https://i.imgur.com/jZhVUgU.png" width="300" height="600">
   <img src="https://i.imgur.com/0F1oDh3.png" width="300" height="600">
   <img src="https://i.imgur.com/djsSqBu.png" width="300" height="600">
