@@ -20,26 +20,29 @@ This API calls back Currency Convertion Factors for 32 other Currencies for the 
   <li>
     <h2>Main Screen Page</h2>
     <br>
-    
+    <img src="https://i.imgur.com/jZhVUgU.png" width="300" height="600">
   </li>
   <li>
     <h2>Red Typer Page</h2>
+    <br>
+    <img src="https://i.imgur.com/0F1oDh3.png" width="300" height="600">
   </li>
   <li>
-    <h2>White Typer Page</h2>  
+    <h2>White Typer Page</h2>
+    <br>
+    <img src="https://i.imgur.com/djsSqBu.png" width="300" height="600">
   </li>
   <li>
     <h2>Red Currencies Page</h2>
+    <br>
+    <img src="https://i.imgur.com/09luJ06.png" width="300" height="600">
   </li>
   <li>
     <h2>White Currencies Page</h2>
+    <br>
+    <img src="https://i.imgur.com/hL1TLqr.png" width="300" height="600">
   </li>
 </ul>
-<img src="https://i.imgur.com/jZhVUgU.png" width="300" height="600">
-<img src="https://i.imgur.com/0F1oDh3.png" width="300" height="600">
-<img src="https://i.imgur.com/djsSqBu.png" width="300" height="600">
-<img src="https://i.imgur.com/09luJ06.png" width="300" height="600">
-<img src="https://i.imgur.com/hL1TLqr.png" width="300" height="600">
 
 I made this open source so y'all can experiment and add more with it!😄<br>
 If you like this project, don't forget to star it😄❤️
