@@ -2,6 +2,7 @@
 <p align="center">
   <img width="300" height="600" src="phone-recording.gif">
 </p>
+
 ## A Flutter project made with ❤️
 
 A Flutter Project to Convert 33 Popular Currencies Around the world.
