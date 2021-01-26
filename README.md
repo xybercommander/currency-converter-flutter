@@ -4,7 +4,7 @@
 A Flutter Project to Convert 33 Popular Currencies Around the world.
 
 ## The UI for the app
-<img src="https://cdn.dribbble.com/users/108183/screenshots/4693061/stylish_currency_converter_by_volorf.png?compress=1&resize=600x480">
+<img src="https://cdn.dribbble.com/users/108183/screenshots/4693061/stylish_currency_converter_by_volorf.png?compress=1&resize=500x400">
 I got the inspiration of this app's UI design from this beautiful interface by <a href="https://dribbble.com/Volorf" target="_blank">Oleg Frolov</a></br>
 The link to the Dribbble Post is : https://dribbble.com/shots/4693061-Stylish-Currency-Converter
 
@@ -25,20 +25,20 @@ This API calls back Currency Convertion Factors for 32 other Currencies for the 
   <li>
     <h2>Red Typer Page</h2>
     <br>
-    <img src="https://i.imgur.com/0F1oDh3.png">
+    <img src="https://i.imgur.com/0F1oDh3.png" width="300" height="600">
   </li>
   <li>
     <h2>White Typer Page</h2>
     <br>
-    <img src="https://i.imgur.com/djsSqBu.png">
+    <img src="https://i.imgur.com/djsSqBu.png" width="300" height="600">
   </li><li>
     <h2>Red Currencies Page</h2>
     <br>
-    <img src="https://i.imgur.com/09luJ06.png">
+    <img src="https://i.imgur.com/09luJ06.png" width="300" height="600">
   </li><li>
     <h2>White Currencies Page</h2>
     <br>
-    <img src="https://i.imgur.com/hL1TLqr.png">
+    <img src="https://i.imgur.com/hL1TLqr.png" width="300" height="600">
   </li>
 </ul>
 
