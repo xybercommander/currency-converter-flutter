@@ -18,32 +18,32 @@ This API calls back Currency Convertion Factors for 32 other Currencies for the 
 ## All the different Screens for the application are shown below
 <ul>
   <li>
-    Splash Screen
-    <br>
+    <h3>Splash Screen</h3>
+    <br>     
     <img src="https://i.imgur.com/XHTRwmJ.png" width="300" height="600">
   </li>
   <li>
-    Main Screen Page
+    <h3>Main Screen Page</h3>
     <br>
     <img src="https://i.imgur.com/jZhVUgU.png" width="300" height="600">
   </li>
   <li>
-    Red Typer Page
+    <h3>Red Typer Page</h3>
     <br>
     <img src="https://i.imgur.com/0F1oDh3.png" width="300" height="600">
   </li>
   <li>
-    White Typer Page
+    <h3>White Typer Page</h3>
     <br>
     <img src="https://i.imgur.com/djsSqBu.png" width="300" height="600">
   </li>
   <li>
-    Red Currencies Page
+    <h3>Red Currencies Page</h3>
     <br>
     <img src="https://i.imgur.com/09luJ06.png" width="300" height="600">
   </li>
   <li>
-    White Currencies Page
+    <h3>White Currencies Page</h3>
     <br>
     <img src="https://i.imgur.com/hL1TLqr.png" width="300" height="600">
   </li>
