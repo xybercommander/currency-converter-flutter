@@ -24,13 +24,10 @@ dependencies:
   flutter:
     sdk: flutter
   page_transition: ^1.1.7+6
-  auto_size_text: ^2.1.0
   http: ^0.12.2
   shared_preferences: ^0.5.12+4
-  flutter_spinkit: "^4.1.2"
   flare_flutter: ^2.0.6
   shimmer: ^1.1.2
-  flutter_money_formatter: ^0.8.3
 
 
   # The following adds the Cupertino Icons font to your application.
