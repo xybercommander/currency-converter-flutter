@@ -16,21 +16,39 @@ This API calls back Currency Convertion Factors for 32 other Currencies for the 
 </strong>
 
 ## All the different Screens for the application are shown below
-<p>
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://i.imgur.com/XHTRwmJ.png" width="300" height="600">
-  &nbsp;&nbsp;
-  <img src="https://i.imgur.com/jZhVUgU.png" width="300" height="600">
-  &nbsp;&nbsp;
-  <img src="https://i.imgur.com/0F1oDh3.png" width="300" height="600">
-</p>
-<p>
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://i.imgur.com/djsSqBu.png" width="300" height="600">
-  &nbsp;&nbsp;
-  <img src="https://i.imgur.com/09luJ06.png" width="300" height="600">
-  &nbsp;&nbsp;
-  <img src="https://i.imgur.com/hL1TLqr.png" width="300" height="600">
+<ul>
+  <li>
+    Splash Screen
+    <br>
+    <img src="https://i.imgur.com/XHTRwmJ.png" width="300" height="600">
+  </li>
+  <li>
+    Main Screen Page
+    <br>
+    <img src="https://i.imgur.com/jZhVUgU.png" width="300" height="600">
+  </li>
+  <li>
+    Red Typer Page
+    <br>
+    <img src="https://i.imgur.com/0F1oDh3.png" width="300" height="600">
+  </li>
+  <li>
+    White Typer Page
+    <br>
+    <img src="https://i.imgur.com/djsSqBu.png" width="300" height="600">
+  </li>
+  <li>
+    Red Currencies Page
+    <br>
+    <img src="https://i.imgur.com/09luJ06.png" width="300" height="600">
+  </li>
+  <li>
+    White Currencies Page
+    <br>
+    <img src="https://i.imgur.com/hL1TLqr.png" width="300" height="600">
+  </li>
+</ul>
+
 
 I made this open source so y'all can experiment and add more things in it!😄<br>
 If you like this project, don't forget to star it😄❤️
