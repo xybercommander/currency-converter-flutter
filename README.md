@@ -11,7 +11,7 @@ The link to the Dribbble Post is : https://dribbble.com/shots/4693061-Stylish-Cu
 ## The Api Used
 The API which I used in this project is : https://api.exchangeratesapi.io/latest?base=THEBASECURRENCY<br>
 ### Note
-<strong>Change the ?base attribute of the api to the desired currency to get the json data</strong><br>
+<strong>Change the ?base attribute of the api to the desired currency to get the json data</strong><br><br>
 This API calls back Currency Convertion Factors for 32 other Currencies for the base currency.
 <strong>Therefore I made a Map of 33*33 elements which can be found in the file currencyAPI.dart : <br>
   https://github.com/xybercommander/flutter-currency-conv/blob/master/lib/services/currencyAPI.dart
