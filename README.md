@@ -17,9 +17,30 @@ This API calls back Currency Convertion Factors for 32 other Currencies for the 
 
 ## All the different Screens for the application are listed below
 <ul>
-  <li>Hello</li>
-  <li>Hello</li>
-  <li>Hello</li>
-  <li>Hello</li>
-  <li>Hello</li>
+  <li>
+    ## Main Screen Page
+    <br>
+    <img src="https://i.imgur.com/jZhVUgU.png">
+  </li>
+  <li>
+    ## Red Typer Page
+    <br>
+    <img src="https://i.imgur.com/0F1oDh3.png">
+  </li>
+  <li>
+    ## White Typer Page
+    <br>
+    <img src="https://i.imgur.com/djsSqBu.png">
+  </li><li>
+    ## Red Currencies Page
+    <br>
+    <img src="https://i.imgur.com/09luJ06.png">
+  </li><li>
+    ## White Currencies Page
+    <br>
+    <img src="https://i.imgur.com/hL1TLqr.png">
+  </li>
 </ul>
+
+I made this open source so y'all can experiment and add more with it!😄
+If you like this project, don't forget to star it😄❤️
