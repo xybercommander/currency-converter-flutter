@@ -1,16 +1,24 @@
-# currency_converter
+# Currency Converter
+## A Flutter project made with ❤️
 
-A new Flutter project.
+A Flutter Project to convert 33 Popular currencies around the work.
 
-## Getting Started
+## The UI for the app
+I got the inspiration of this app's UI design from this beautiful interface by <a href="https://dribbble.com/Volorf">Oleg Frolov</a>
+The link to the Dribbble Post is : https://dribbble.com/shots/4693061-Stylish-Currency-Converter
 
-This project is a starting point for a Flutter application.
+## The Api Used
+The API which I used in this project is : https://api.exchangeratesapi.io/latest?base=THEBASECURRENCY<br>
+This API calls back Currency Convertion Factors for 32 other Currencies for the base currency.
+<strong>Therefore I made a Map of 33*33 elements which can be found in the file currencyAPI.dart : <br>
+  https://github.com/xybercommander/flutter-currency-conv/blob/master/lib/services/currencyAPI.dart
+</strong>
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## All the different Screens for the application are listed below
+<ul>
+  <li>Hello</li>
+  <li>Hello</li>
+  <li>Hello</li>
+  <li>Hello</li>
+  <li>Hello</li>
+</ul>
