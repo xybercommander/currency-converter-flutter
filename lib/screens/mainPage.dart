@@ -24,6 +24,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
 
 
 
+
   // Helper Functions (Shared Preference)
   getRedCurrency() async {
     String redCurrencyValue = await HelperFunctions().getRedCurrencyValue();
