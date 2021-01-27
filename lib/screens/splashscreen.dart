@@ -114,7 +114,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   baseColor: Colors.red[100],
                   highlightColor: Colors.white,
                   child: Text(
-                    "Fetching Currency Data from API",
+                    "Fetching Currency Data",
                     textAlign: TextAlign.center,
                   ),
                 ),
