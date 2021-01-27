@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
   BuildContext scaffoldContext;
 
   void initialPlayer(bool opened) async {
-    Future.delayed(Duration(seconds: opened ? 4 : 12), () {
+    Future.delayed(Duration(seconds: opened ? 3 : 12), () {
       Navigator.pushReplacement(
         context, 
         PageTransition(
