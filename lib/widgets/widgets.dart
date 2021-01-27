@@ -36,7 +36,7 @@ currencyList(context, Color color1, Color color2, bool isRed, bool up) {
           nameWidget("Brazilian Reais", "BRL", color1, color2, isRed, context, up),
           nameWidget("Russian Ruble", "RUB", color1, color2, isRed, context, up),
           nameWidget("Croatian Kuna", "HRK", color1, color2, isRed, context, up),
-          nameWidget("Japanese yen", "JPY", color1, color2, isRed, context, up),
+          nameWidget("Japanese Yen", "JPY", color1, color2, isRed, context, up),
           nameWidget("Thai Baht", "THB", color1, color2, isRed, context, up),
           nameWidget("Swiss Franc", "CHF", color1, color2, isRed, context, up),
           nameWidget("Euro", "EUR", color1, color2, isRed, context, up),
