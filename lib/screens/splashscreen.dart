@@ -2,7 +2,7 @@
 import 'package:currency_converter/helper/helperfunctions.dart';
 import 'package:currency_converter/services/currencyAPI.dart';
 import 'package:flare_flutter/flare_actor.dart';
-import 'package:flare_flutter/flare_controller.dart';
+import 'package:flutter/services.dart';
 import 'package:flare_flutter/flare_controls.dart';
 import 'package:flutter/material.dart';
 import 'package:currency_converter/screens/mainPage.dart';
@@ -68,6 +68,13 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    // Fixing the apps orientaion in Potrait Mode
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
     return Scaffold(      
       backgroundColor: Colors.red,
       body: Column(
