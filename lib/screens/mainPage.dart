@@ -8,6 +8,7 @@ import 'package:currency_converter/screens/whiteTyper.dart';
 import 'package:currency_converter/services/currencyAPI.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:flutter/services.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -72,6 +73,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
 
 
 
+  // *****API CALLS*****
   Future<bool> getCurrencyData(Map data) async {
     dynamic jsonData = await HelperFunctions().getCurrencyMapJsonData();
     Map response;
@@ -103,7 +105,6 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
 
 
 
-
   // Animation Tween
   final Tween<double> turnsTween = Tween<double>(
     begin: 1,
@@ -111,6 +112,8 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   );
   AnimationController _animationController;
 
+
+  // initstate //
   @override
   void initState() {
     _animationController = AnimationController(
@@ -130,6 +133,13 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   // UI of the main page
   @override
   Widget build(BuildContext context) {
+
+    // Fixing the apps orientaion in Potrait Mode
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -352,6 +362,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                 )
               ],
             ),
+
             // The Arrow Container
             RotationTransition(
               turns: turnsTween.animate(_animationController),

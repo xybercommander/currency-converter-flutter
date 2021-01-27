@@ -1,6 +1,7 @@
 import 'package:currency_converter/helper/constants.dart';
 import 'package:currency_converter/helper/helperfunctions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class RedBackGround extends StatefulWidget {
   @override
@@ -86,6 +87,13 @@ class _RedBackGroundState extends State<RedBackGround> {
   // UI OF THE SCREEN
   @override
   Widget build(BuildContext context) {
+
+    // Fixing the apps orientaion in Potrait Mode
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,

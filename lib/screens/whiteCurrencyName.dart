@@ -1,5 +1,6 @@
 import 'package:currency_converter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class WhiteCurrency extends StatefulWidget {
 
@@ -13,6 +14,13 @@ class WhiteCurrency extends StatefulWidget {
 class _WhiteCurrencyState extends State<WhiteCurrency> {
   @override
   Widget build(BuildContext context) {
+
+    // Fixing the apps orientaion in Potrait Mode
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
     return Scaffold(
       
       body: Container(

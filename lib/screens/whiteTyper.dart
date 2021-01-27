@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:currency_converter/helper/constants.dart';
 import 'package:currency_converter/helper/helperfunctions.dart';
+import 'package:flutter/services.dart';
 
 class WhiteBackGround extends StatefulWidget {
   @override
@@ -87,6 +88,13 @@ class _WhiteBackGroundState extends State<WhiteBackGround> {
   // UI OF THE SCREEN
   @override
   Widget build(BuildContext context) {
+
+    // Fixing the apps orientaion in Potrait Mode
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
